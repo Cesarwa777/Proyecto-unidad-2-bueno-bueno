@@ -1,10 +1,29 @@
-﻿namespace Proyecto_unidad_2_bueno_bueno
+﻿// Clase que representa el sistema de riego
+class SistemaRiego
 {
-    internal class Program
+    private bool activado;
+
+    // Evalúa si se debe activar el riego según el valor de humedad
+    public void EvaluarCondiciones(double humedad)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+        activado = humedad < 50;
+    }
+
+    public void Activar()
+    {
+        activado = true;
+    }
+
+    public void Desactivar()
+    {
+        activado = false;
+    }
+
+    public void MostrarEstado()
+    {
+        if (activado)
+            Console.WriteLine("Riego ACTIVADO");
+        else
+            Console.WriteLine("Riego DESACTIVADO");
     }
 }
