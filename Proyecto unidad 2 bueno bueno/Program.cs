@@ -1,4 +1,5 @@
 ﻿// Clase que representa el sensor de humedad 
+using System;
 class SensorHumedad
 {
     private string nombre = "Sensor de Humedad";
