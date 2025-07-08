@@ -1,4 +1,6 @@
-﻿class SistemaRiego // Declara la clase SistemaRiego que representará un sistema de riego automático
+﻿using System;
+
+class SistemaRiego // Declara la clase SistemaRiego que representará un sistema de riego automático
 {
     private bool activado; // Variable privada que indica si el sistema de riego está activado (true) o no (false)
 
@@ -24,5 +26,20 @@
             Console.WriteLine("Riego ACTIVADO"); // Si está activado, imprime "Riego ACTIVADO"
         else
             Console.WriteLine("Riego DESACTIVADO"); // Si no está activado, imprime "Riego DESACTIVADO"
+    }
+}
+
+// Este es el punto de entrada del programa
+class Program
+{
+    static void Main()
+    {
+        SistemaRiego sistema = new SistemaRiego();
+
+        sistema.EvaluarCondiciones(40); // Simulamos humedad menor a 50
+        sistema.MostrarEstado();
+
+        sistema.Desactivar(); // Desactivamos manualmente
+        sistema.MostrarEstado();
     }
 }
