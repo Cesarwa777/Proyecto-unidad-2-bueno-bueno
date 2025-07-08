@@ -24,7 +24,6 @@ namespace InvernaderoSimulacionSinHerencia
         }
     }
 
-
     // Clase principal que coordina sensores y riego
     class ControladorInvernadero
     {
@@ -42,20 +41,73 @@ namespace InvernaderoSimulacionSinHerencia
         // Ejecuta un ciclo de monitoreo del sistema
         public void EjecutarMonitoreo()
         {
-            // Leer datos de sensores
             sensorTemp.LeerValor();
             sensorHum.LeerValor();
 
-            // Mostrar valores actuales
             sensorTemp.MostrarValor();
             sensorHum.MostrarValor();
 
-            // Evaluar si se necesita activar el riego
             double humedad = sensorHum.ObtenerValor();
             sistemaRiego.EvaluarCondiciones(humedad);
-
-            // Mostrar estado del sistema de riego
             sistemaRiego.MostrarEstado();
+        }
+    }
+
+    // Clase para sensor de temperatura
+    class SensorTemperatura
+    {
+        private double valor;
+
+        public void LeerValor()
+        {
+            Random rnd = new Random();
+            valor = rnd.Next(18, 35); // Simular temperatura entre 18 y 35 °C
+        }
+
+        public void MostrarValor()
+        {
+            Console.WriteLine($"Temperatura: {valor} °C");
+        }
+    }
+
+    // Clase para sensor de humedad
+    class SensorHumedad
+    {
+        private double valor;
+
+        public void LeerValor()
+        {
+            Random rnd = new Random();
+            valor = rnd.Next(20, 80); // Simular humedad entre 20% y 80%
+        }
+
+        public void MostrarValor()
+        {
+            Console.WriteLine($"Humedad: {valor}%");
+        }
+
+        public double ObtenerValor()
+        {
+            return valor;
+        }
+    }
+
+    // Clase para el sistema de riego
+    class SistemaRiego
+    {
+        private bool activo;
+
+        public void EvaluarCondiciones(double humedad)
+        {
+            activo = humedad < 40; // Activar si la humedad es baja
+        }
+
+        public void MostrarEstado()
+        {
+            if (activo)
+                Console.WriteLine("Riego: ACTIVADO");
+            else
+                Console.WriteLine("Riego: DESACTIVADO");
         }
     }
 }
