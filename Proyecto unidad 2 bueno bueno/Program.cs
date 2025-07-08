@@ -1,8 +1,11 @@
 ﻿
 using System;
 
-// Clase que representa un sensor de temperatura simulado
-class SensorTemperatura
+namespace InvernaderoSimulacionSinHerencia
+{
+
+    // Clase que representa un sensor de temperatura simulado
+    class SensorTemperatura
 {
     // Nombre del sensor (puede usarse para identificarlo en la salida)
     private string nombre = "Sensor de Temperatura";
@@ -37,3 +40,6 @@ class SensorTemperatura
         return valor;
     }
 }
+
+}
+
