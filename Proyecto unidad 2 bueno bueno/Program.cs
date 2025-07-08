@@ -1,48 +1,46 @@
-﻿using System;  // Importa las funcionalidades básicas como Console y Random.
+﻿using System;  // Importa el espacio de nombres System, necesario para usar funcionalidades básicas como Console y Random.
 
 // Clase que representa el sensor de humedad 
-class SensorHumedad
+class SensorHumedad  // Define una clase llamada SensorHumedad.
 {
-    private string nombre = "Sensor de Humedad";
-    private double valor;
-    private Random random;
+    private string nombre = "Sensor de Humedad";  // Atributo privado que almacena el nombre del sensor.
+    private double valor;  // Atributo privado que guardará el valor actual de humedad.
+    private Random random;  // Atributo privado para generar números aleatorios.
 
-    public SensorHumedad()
+    public SensorHumedad()  // Constructor de la clase SensorHumedad.
     {
-        random = new Random();
+        random = new Random();  // Inicializa el objeto random para poder generar valores aleatorios.
     }
 
     // Simula la lectura de humedad entre 30% y 90%
-    public void LeerValor()
+    public void LeerValor()  // Método público que simula leer un valor de humedad.
     {
-        valor = random.Next(30, 91);
+        valor = random.Next(30, 91);  // Genera un número aleatorio entre 30 y 90 (91 no incluido) y lo asigna a 'valor'.
     }
 
-    public void MostrarValor()
+    public void MostrarValor()  // Método público que muestra el valor de humedad en consola.
     {
-        Console.WriteLine($"{nombre}: {valor}%");
+        Console.WriteLine($"{nombre}: {valor}%");  // Imprime el nombre del sensor y su valor actual seguido del símbolo de porcentaje.
     }
 
-    public double ObtenerValor()
+    public double ObtenerValor()  // Método público que devuelve el valor actual de humedad.
     {
-        return valor;
+        return valor;  // Retorna el valor almacenado en el atributo 'valor'.
     }
 }
 
-// Clase principal con el punto de entrada del programa
-class Program
+class Program  // Clase principal que contiene el punto de entrada del programa.
 {
-    static void Main(string[] args)  // Este es el método que el compilador necesita para empezar.
+    static void Main(string[] args)  // Método Main: punto de entrada del programa, requerido para que se ejecute.
     {
-        // Crear un objeto del sensor de humedad
-        SensorHumedad sensor = new SensorHumedad();
+        SensorHumedad sensor = new SensorHumedad();  // Crea una nueva instancia del sensor de humedad.
 
-        // Leer y mostrar el valor de humedad
-        sensor.LeerValor();
-        sensor.MostrarValor();
+        sensor.LeerValor();  // Llama al método para simular una lectura de humedad.
 
-        // También podrías usar ObtenerValor si lo necesitas
-        double valorHumedad = sensor.ObtenerValor();
-        Console.WriteLine("Valor obtenido por método: " + valorHumedad + "%");
+        sensor.MostrarValor();  // Llama al método para mostrar en pantalla el valor leído.
+
+        double valorHumedad = sensor.ObtenerValor();  // Llama al método que devuelve el valor leído y lo guarda en una variable.
+
+        Console.WriteLine("Valor obtenido por método: " + valorHumedad + "%");  // Imprime en consola el valor obtenido directamente.
     }
 }
