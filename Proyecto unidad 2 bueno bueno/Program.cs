@@ -1,5 +1,6 @@
 
 
+
 ﻿using System;  // Importa el espacio de nombres System, necesario para usar funcionalidades básicas como Console y Random.
 
 // Clase que representa el sensor de humedad 
@@ -13,6 +14,13 @@ class SistemaRiego // Declara la clase SistemaRiego que representará un sistema
 
     // Evalúa si se debe activar el riego según el valor de humedad
     public void EvaluarCondiciones(double humedad) // Método público que recibe el valor de humedad y evalúa si se debe activar el riego
+=======
+﻿using System;
+
+namespace InvernaderoSimulacionSinHerencia
+{
+    class Program
+
     {
         activado = humedad < 50; // Si la humedad es menor a 50, se activa el sistema de riego (activado = true), si no, se desactiva (activado = false)
     }
@@ -61,6 +69,7 @@ namespace InvernaderoSimulacionSinHerencia
         // Método principal, punto de entrada de la aplicación
         static void Main(string[] args)
         {
+
             // Crear el controlador principal del sistema
             ControladorInvernadero controlador = new ControladorInvernadero();
 
@@ -180,6 +189,46 @@ namespace InvernaderoSimulacionSinHerencia
                 Console.WriteLine("Riego: ACTIVADO");
             else
                 Console.WriteLine("Riego: DESACTIVADO");
+
+            // Aquí podrías crear una instancia del sensor y probarlo si gustas
+        }
+    }
+
+    // Clase que representa un sensor de temperatura simulado
+    class SensorTemperatura
+    {
+        // Nombre del sensor (puede usarse para identificarlo en la salida)
+        private string nombre = "Sensor de Temperatura";
+
+        // Almacena el valor actual de temperatura leído por el sensor
+        private double valor;
+
+        // Objeto para generar valores aleatorios
+        private Random random;
+
+        // Constructor: inicializa el generador de números aleatorios
+        public SensorTemperatura()
+        {
+            random = new Random();
+        }
+
+        // Simula la lectura de un nuevo valor de temperatura entre 15 y 35 °C
+        public void LeerValor()
+        {
+            valor = random.Next(15, 36); // Next excluye el número superior
+        }
+
+        // Muestra el valor actual de la temperatura en consola con el nombre del sensor
+        public void MostrarValor()
+        {
+            Console.WriteLine($"{nombre}: {valor}°C");
+        }
+
+        // Devuelve el valor actual de la temperatura
+        public double ObtenerValor()
+        {
+            return valor;
+
         }
 =======
 ﻿// Clase que representa el sensor de humedad 
@@ -232,3 +281,5 @@ class Program  // Clase principal que contiene el punto de entrada del programa.
 
     }
 }
+
+
