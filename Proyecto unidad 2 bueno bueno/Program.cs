@@ -13,7 +13,7 @@
         activado = true; // Establece el estado de 'activado' en true (riego activado)
     }
 
-    public void Desactivar() // Método público que desactiva manualmente el sistema de riego
+    public void Desactivar() // Método público que desactiva manualmente el sistema de riego.
     {
         activado = false; // Establece el estado de 'activado' en false (riego desactivado)
     }
